@@ -9,9 +9,11 @@ import { loadDetail } from "../actions/detailAction";
 import { Link } from "react-router-dom";
 
 const Game = ({ name, released, image, id }) => {
-    //Load Details
+    //Load Details 
+
     const dispatch = useDispatch();
     const loadDetailHandler = () => {
+        document.body.style.overflow = "hidden";
         dispatch(loadDetail(id));
 
     }
@@ -35,6 +37,7 @@ box-shadow: 0px 5px 30px rgba(0,0,0,0.2);
 text-align: center;
 border-radius: 1rem;
 cursor: pointer;
+overflow: hidden;
 img{
     width: 100%;
     height: 40vh;
