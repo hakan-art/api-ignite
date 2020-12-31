@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-const GameDetail = () => {
+import { smallImage } from "../util"
+
+const GameDetail = ({ pathId }) => {
 
     const history = useHistory();
     // Exit Detail 
@@ -26,10 +28,10 @@ const GameDetail = () => {
             {!isLoading && (
                 <CardShadow className="shadow" onClick={exitDetailHandler}>
 
-                    <Detail>
+                    <Detail layoutId={pathId}>
                         <Stats>
                             <div className="rating">
-                                <h3>{game.name}</h3>
+                                <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
                                 <p>Rating: {game.rating}</p>
                             </div>
                             <Info>
@@ -42,17 +44,19 @@ const GameDetail = () => {
                             </Info>
                         </Stats>
                         <Media>
-                            <img src={game.background_image} alt="game-screenshots" />
+                            <motion.img layoutId={`image ${pathId}`} src={smallImage(game.background_image, 1280)} alt="game-screenshots" />
                         </Media>
                         <Description>
                             <p>{game.description_raw}</p>
                         </Description>
                         <div className="gallery">
                             {screen.results && screen.results.map(screen => (
-                                <ImageMedia src={screen.image} key={screen.id} alt="game-screenshots-further" />
+                                <ImageMedia src={smallImage(screen.image, 1280)} key={screen.id} alt="game-screenshots-further" />
                             ))}
                         </div>
+                        <BackButton className="shadow">Back to Site</BackButton>
                     </Detail>
+
                 </CardShadow>
             )}
         </>
@@ -67,6 +71,7 @@ background: rgba(0,0,0,0.5);
 position: fixed;
 top: 0;
 left: 0;
+z-index: 5;
 &::-webkit-scrollbar{
     width:0.5rem;
 }
@@ -84,6 +89,7 @@ border-radius: 1rem;
 padding: 2rem 5rem;
 background: white;
 position: absolute;
+z-index: 10;
 left: 10%;
 color: black;
 img{
@@ -123,6 +129,29 @@ margin-bottom: 3rem;
 
 const Description = styled(motion.div)`
 margin: 5rem 0rem;
+`;
+const BackButton = styled.button`
+margin: 0 auto;
+display: block;
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
+
+  &:hover{
+    
+  border: 3px solid #2ecc71;
+  background: transparent;
+  color: #2ecc71;
+  }
 `;
 
 export default GameDetail;
