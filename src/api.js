@@ -34,12 +34,17 @@ const currentYear = new Date().getFullYear();
 const currentMonth = getCurrentMonth();
 const currentDay = getCurrentDay();
 
-const currentDate = `${currentYear}-${currentMonth}-${currentDay}`
-const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`
-const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`
+const currentDateSplit = `${currentYear}-${currentMonth}-${currentDay}`
+const lastYearSplit = `${currentYear - 1}-${currentMonth}-${currentDay}`
+const nextYearSplit = `${currentYear + 1}-${currentMonth}-${currentDay}`
+const lastYear = lastYearSplit.split(" ").join("");
+const currentDate = currentDateSplit.split(" ").join("");
+const nextYear = nextYearSplit.split(" ").join("");
 
 
 console.log(lastYear)
+
+
 
 
 
