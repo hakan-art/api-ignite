@@ -51,7 +51,15 @@ input{
     border: none;
     margin-top: 1rem;
     box-shadow:0px 0px 30px rgba(0,0,0,0.2);
+    @media (max-width: 700px){
+    
+    display:block;
+    width:100%;
+    
+    }
+
 }
+
 button{
     margin-left:1rem;
   width: 250px;
@@ -68,6 +76,14 @@ button{
   outline:none;
   cursor: pointer;
   transition: all .35s;
+  @media (max-width: 700px){
+    
+    display:block;
+    width:100%;
+    margin: 1rem auto;
+    }
+    
+  
 
   &:hover{
     

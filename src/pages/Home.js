@@ -69,12 +69,22 @@ padding: 0rem 5rem;
 h2{
     padding: 5rem 0rem;
 }
+@media (max-width: 700px){
+    
+    padding: 0;
+    }
+    
 `;
 const Games = styled(motion.div)`
 min-height: 80vh;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(500px,1fr));
 gap: 5rem 3rem;
+@media (max-width: 700px){
+    
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    }
+    
 `;
 
 

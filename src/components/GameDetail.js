@@ -141,6 +141,10 @@ color: black;
 img{
     width:100%
 }
+@media (max-width: 770px){
+    padding: 2rem 2rem;
+    
+    }
 `;
 
 const Stats = styled(motion.div)`
@@ -152,6 +156,11 @@ img{
     height: 2rem;
     display: inline;
 }
+@media (max-width: 770px){
+    
+    display:block;
+ }
+
 `;
 
 const Info = styled(motion.div)`
@@ -164,6 +173,15 @@ justify-content: space-evenly;
 img{
     margin-left: 3rem;
 }
+@media (max-width: 900px){
+    margin: 0 auto;
+   width: 30%;
+   img{
+    margin-left: .5rem;
+    width:40%;
+}
+    
+    }
 `;
 
 const Media = styled(motion.div)`
@@ -196,6 +214,11 @@ display: block;
   letter-spacing: 1px;
   border: 3px solid #333;
   transition: all .35s;
+  @media (max-width: 500px){
+    
+   margin: 0 auto;
+   width:150px;
+ }
 
   &:hover{
     
